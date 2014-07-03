@@ -58,12 +58,6 @@ ker.test_pat = test_pat;
 
 calker_exp_dir = sprintf('%s/%s/experiments/%s-calker/%s%s', ker.proj_dir, proj_name, exp_name, ker.feat, ker.suffix);
 ker.log_dir = fullfile(calker_exp_dir, 'log');
-
-f_metadata = '/net/per610a/export/das11f/plsang/trecvidmed13/metadata/common/metadata_devel.mat';
-fprintf('Loading metadata...\n');
-metadata_ = load(f_metadata, 'metadata');
-metadata = metadata_.metadata;
-ker.prms.metadata = metadata;
  
 %if ~exist(calker_exp_dir, 'file'),
 mkdir(calker_exp_dir);

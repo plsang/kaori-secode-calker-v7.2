@@ -7,6 +7,11 @@ if ~exist(calker_common_exp_dir, 'file'),
 	mkdir(calker_common_exp_dir);
 end
 
+f_metadata = '/net/per610a/export/das11f/plsang/trecvidmed13/metadata/common/metadata_devel.mat';
+fprintf('Loading metadata...\n');
+metadata_ = load(f_metadata, 'metadata');
+metadata = metadata_.metadata;
+prms.metadata = metadata;
 
 %pats = [{'dev'} {'medtest'} {'kindredtest'} {'test'}];
 pats = [{'dev'} {'medtest'} {'kindredtest'}];
@@ -118,7 +123,7 @@ for pat_ = pats,
 						ker.proj_dir, proj_name, seg_name, ker.feat_raw, segment_pat, video_name, video_name);   
 				elseif strcmp(seg_name, 'segment-bg'),
 					c_path = sprintf('%s/%s/feature/%s/%s/%s/%s.mat',...
-						ker.proj_dir, proj_name, seg_name, ker.feat_raw, fileparts(ker.prms.metadata.(clip_name).ldc_pat), clip_name);   	
+						ker.proj_dir, proj_name, seg_name, ker.feat_raw, fileparts(prms.metadata.(video_name).ldc_pat), video_name);   	
 				else
 					c_path = sprintf('%s/%s/feature/%s/%s/%s/%s/%s.mat',...
 						ker.proj_dir, proj_name, seg_name, ker.feat_raw, segment_pat, video_name, segments{jj});                  
