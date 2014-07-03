@@ -115,7 +115,10 @@ for pat_ = pats,
             for jj = 1:c_num,               
 				if strcmp(seg_name, 'segment-100000'),
 					c_path = sprintf('%s/%s/feature/%s/%s/%s/%s/%s.mat',...
-						ker.proj_dir, proj_name, seg_name, ker.feat_raw, segment_pat, video_name, video_name);    
+						ker.proj_dir, proj_name, seg_name, ker.feat_raw, segment_pat, video_name, video_name);   
+				elseif strcmp(seg_name, 'segment-bg'),
+					c_path = sprintf('%s/%s/feature/%s/%s/%s/%s.mat',...
+						ker.proj_dir, proj_name, seg_name, ker.feat_raw, fileparts(ker.prms.metadata.(clip_name).ldc_pat), clip_name);   	
 				else
 					c_path = sprintf('%s/%s/feature/%s/%s/%s/%s/%s.mat',...
 						ker.proj_dir, proj_name, seg_name, ker.feat_raw, segment_pat, video_name, segments{jj});                  
