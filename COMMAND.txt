@@ -1,0 +1,10 @@
+calker_main('trecvidmed13', 'bg', 'mfcc.bg.rastamat.cb256.fc', '--calker-v7-bg', 'kindredtest', 19968, 'kl2', 0, 0);
+
+calker_main('trecvidmed13', 'bg', 'mfcc.bg.rastamat.cb256.fc.pca', '--calker-v7-bg', 'kindredtest', 13312, 'kl2', 0, 0);
+
+calker_main('trecvidmed13', 'bg', 'densetraj.mbh.dt.cb256.fc.pca', '--calker-v7-bg', 'kindredtest', 65536, 'kl2', 0, 0);
+
+calker_main('trecvidmed13', 'bg', 'densetraj.mbh.idt.cb256.fc.pca', '--calker-v7-bg', 'kindredtest', 65536, 'kl2', 0, 0);
+
+calker_main('trecvidmed13', 'bg', 'covdet.hessian.bg.sift.cb256.fisher.pca',
+'--calker-v7-bg', 'kindredtest', 40960, 'kl2', 0, 0);
