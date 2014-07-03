@@ -66,6 +66,9 @@ parfor ii = 1:length(traindb.label), %
 		continue;
 	end
 	
+	%% applying power normalization
+	code = sign(code) .* sqrt(abs(code));   
+	
 	if ~all(code == 0),
 		if strcmp(ker.feat_norm, 'l1'),
 			code = code / norm(code, 1);

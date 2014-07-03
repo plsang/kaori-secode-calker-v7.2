@@ -47,6 +47,8 @@ parfor ii = 1:length(database.path), %
 		end
 	end
 	
+	code = sign(code) .* sqrt(abs(code));
+	
 	if ~all(code == 0),
 		if strcmp(ker.feat_norm, 'l2'),
 			code = code / norm(code, 2);
