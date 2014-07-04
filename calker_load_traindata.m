@@ -42,8 +42,13 @@ parfor ii = 1:length(traindb.label), %
 		continue;
 	end
 	
-	code = load(segment_path, 'code');
-	code = code.code;
+	codes = load(segment_path, 'codes');
+	codes = codes.codes;
+	
+	%% already power normed for each kf.
+	%% need to average and power norm again
+	code = sum(codes, 2);	%% TODO: use mean(codes, 2);
+	code = sign(code) .* sqrt(abs(code));
 	
 	if size(code, 1) ~= ker.num_dim,
 		warning('Dimension mismatch [%d-%d-%s]. Skipped !!\n', size(code, 1), ker.num_dim, segment_path);

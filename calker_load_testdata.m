@@ -30,8 +30,15 @@ parfor ii = 1:length(database.path), %
 		%code = ones(ker.num_dim, 1);
 		code = zeros(ker.num_dim, 1);
 	else
-		code = load(segment_path, 'code');
-		code = code.code;
+		%code = load(segment_path, 'code');
+		%code = code.code;
+		codes = load(segment_path, 'codes');
+		codes = codes.codes;
+	
+		%% already power normed for each kf.
+		%% need to average and power norm again
+		code = sum(codes, 2);	%% TODO: use mean(codes, 2);
+		code = sign(code) .* sqrt(abs(code));
 		
 		if size(code, 1) ~= ker.num_dim,
 			warning('Dimension mismatch [%d-%d-%s]. Generating random feature... !!\n', size(code, 1), ker.num_dim, segment_path);
