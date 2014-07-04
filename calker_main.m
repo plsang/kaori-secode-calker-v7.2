@@ -56,6 +56,10 @@ ker.dev_pat = 'dev';
 ker.test_pat = test_pat;
 %ker.test_pat = 'medtest';
 
+%% alpha value for power normalization
+ker.alpha = 0.2;
+ker.suffix = sprintf('%s.pn%.1f', ker.suffix, ker.alpha);
+
 calker_exp_dir = sprintf('%s/%s/experiments/%s-calker/%s%s', ker.proj_dir, proj_name, exp_name, ker.feat, ker.suffix);
 ker.log_dir = fullfile(calker_exp_dir, 'log');
  

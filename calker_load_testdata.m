@@ -47,7 +47,8 @@ parfor ii = 1:length(database.path), %
 		end
 	end
 	
-	code = sign(code) .* sqrt(abs(code));
+	%code = sign(code) .* sqrt(abs(code));
+	code = sign(code) .* power(abs(code), ker.alpha);
 	
 	if ~all(code == 0),
 		if strcmp(ker.feat_norm, 'l2'),
